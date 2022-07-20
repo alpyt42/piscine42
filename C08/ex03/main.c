@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-cont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 21:11:38 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/07/18 17:45:31 by ale-cont         ###   ########lyon.fr   */
+/*   Created: 2022/07/20 12:50:58 by ale-cont          #+#    #+#             */
+/*   Updated: 2022/07/20 13:28:46 by ale-cont         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+#include "ft_point.h"
+void	set_point(t_point *point)
 {
-	long	i;
-
-	i = 2;
-	while (i * i <= nb)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
+	point->x = 42;
+	point->y = 21;
+}
+int	main(void)
+{
+	t_point point;
+	set_point(&point); 
 	return (0);
 }

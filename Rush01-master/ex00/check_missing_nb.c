@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   check_missing_nb.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-cont <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lcompieg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 21:28:31 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/07/18 17:49:21 by ale-cont         ###   ########lyon.fr   */
+/*   Created: 2022/07/17 21:28:22 by lcompieg          #+#    #+#             */
+/*   Updated: 2022/07/17 21:48:11 by ale-cont         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+int	missing_on_row(int nb, int tab[6][6], int x)
 {
-	long	i;
+	int	y;
 
-	i = 3;
-	if (nb <= 1)
-		return (0);
-	if (nb == 2 || nb == 3)
-		return (1);
-	if (nb % 2 == 0 || nb % 3 == 0)
-		return (0);
-	while (i * 2 <= nb)
+	y = 1;
+	while (y < 5)
 	{
-		if (nb % i == 0)
+		if (tab[x][y] == nb)
 			return (0);
-		i += 2;
+		y++;
+	}
+	return (1);
+}
+
+int	missing_on_col(int nb, int tab[6][6], int y)
+{
+	int	x;
+
+	x = 1;
+	while (x < 5)
+	{
+		if (tab[x][y] == nb)
+			return (0);
+		x++;
 	}
 	return (1);
 }

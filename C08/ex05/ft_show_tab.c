@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-cont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 21:11:38 by ale-cont          #+#    #+#             */
-/*   Updated: 2022/07/18 17:45:31 by ale-cont         ###   ########lyon.fr   */
+/*   Created: 2022/07/20 18:02:14 by ale-cont          #+#    #+#             */
+/*   Updated: 2022/07/20 18:38:28 by ale-cont         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	long	i;
+#include <unistd.h>
+#include "ft_stock_str.h"
 
-	i = 2;
-	while (i * i <= nb)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_show_tab(struct s_stock_str *par)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	while (par[i].str)
 	{
-		if (i * i == nb)
-			return (i);
+		j = 0;
+		k = 0;
+		ft_putchar(par[i].size + 48);
+		ft_putchar("\n");
+		while (par[i].str[j])
+			ft_putchar(par[i].str[j++]);
+		ft_putchar("\n");
+		while (par[i].copy[k])
+			ft_putchar(par[i].copy[k++]);
+		ft_putchar("\n");
 		i++;
 	}
-	return (0);
 }
